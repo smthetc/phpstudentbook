@@ -265,28 +265,84 @@ help();
 tempnam("/text", "4815162342");
 
 br();
+echo time();
+br();
+function getmicrotime() 
+{ 
+    list($usec, $sec) = explode(" ", microtime()); 
+    return ((float)$usec + (float)$sec); 
+}
+ 
+$time_start = getmicrotime();
 
+usleep(100);
 
+$time_end = getmicrotime();
+$time = $time_end - $time_start;
 
+echo $time_start;
+br();
+echo $time;
+br();
+echo date("d.M.Y");
+br();
+echo strftime("%B %Y, %d, %A, %H:%M");
+br();
+echo date("M-d-Y", mktime(0, 0, 0, 1, 31, 2019));
+?>
 
+<?php
+$check = array(
+    "now",
+    "31 January 2019",
+    "+1 day",
+    "+1 week",
+    "+1 week 4 days 15 hours 2 seconds",
+    "next Friday",
+    "last Wednessday"
+);
+?>
+<table style="width:100%">
+<tr style="align:left">
+<th>Входная строка</th>
+<th>Timestamp</th>
+<th>Получившаяся дата</th>
+<th>Сегодня</th>
+</tr>
+<?foreach ($check as $str) {?>
+<tr>
+<td><?$str?></td>
+<td><?=$stamp=strtotime($str)?></td>
+<td><?=date("Y-m-d H:i:s", $stamp)?></td>
+<td><?+date("Y-m-d H:i:s", time())?></td>
+</tr>
+<?}?>
+</table>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<?php
+$timess = array(
+    "hours",
+    "mday",
+    "wday"
+);
+print_r($timess);
+br();
+$jd = GregorianToJD(1, 31, 6666);
+echo $jd;
+br();
+$dj = JDToGregorian($jd);
+echo $dj;
+br();
+$jdj = JDDayOfWeek(13, 1);
+echo $jdj;
+br();
+checkdate(10, 4, 1000)
 
 ?>
+
+
+
+
 
 <form action="function.php" method="post" name="form1" target="_blank">
 
