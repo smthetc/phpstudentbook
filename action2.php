@@ -336,12 +336,64 @@ br();
 $jdj = JDDayOfWeek(13, 1);
 echo $jdj;
 br();
-checkdate(10, 4, 1000)
+checkdate(10, 4, 1000);
+br();
 
 ?>
 
+<?php
+// headers_sent('Location: http://www.example.com/');
+print_r(getimagesize(realpath('uchitel.jpg'))); 
+br();
+?>
+<img src="function.php?Hello+world!"> 
+<?
+$string = $_SERVER['QUERY_STRING']; 
+if (!$string) $string = "Hello, world!"; 
+echo $string;
+br();
+?>
+
+<?php
+class publichouse {
+    public $mama;
+    public $sister;
+    public function name(){
+      echo $fucout = $this->mama+$this->sister;
+      br();
+    }
+}
+
+$obj = new publichouse();
+
+echo $obj -> sister = 10;
+br();
+echo $obj -> mama = 15;
+br();
+echo $obj -> papa2 = 10;
+br();
+echo $obj -> name();
 
 
+
+class dom {
+    function name(){
+        echo 21 + 21;
+        br();
+    }
+    function name2($a,$b){
+        echo $a + $b;
+        br();
+    }
+}
+
+
+$obj2 = new dom();
+$obj2-> name();
+$obj2-> name2(1,2);
+
+
+?>
 
 
 <form action="function.php" method="post" name="form1" target="_blank">
